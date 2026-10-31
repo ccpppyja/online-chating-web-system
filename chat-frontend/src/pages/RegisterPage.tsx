@@ -8,7 +8,7 @@ export default function RegisterPage() {
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
     const [error, setError] = useState('')
-    const [success, setSucess] = useState('')
+    const [success, setSuccess] = useState('')
     const [loading, setLoading] = useState(false)
 
     const passwordTooShort = password.length > 0 && password.length < 6
@@ -17,11 +17,11 @@ export default function RegisterPage() {
         e.preventDefault()
         if (passwordTooShort) return
         setError('')
-        setSucess('')
+        setSuccess('')
         setLoading(true)
         try {
             await register({username, password, email})
-            setSucess('Registration successful, you will be redirected to the login page shortly...')
+            setSuccess('Registration successful, you will be redirected to the login page shortly...')
             setTimeout(() => navigate('/login'), 1500)
         } catch (err: any) {
             setError(err.response?.data?.message || 'Registration failed, please try again.')

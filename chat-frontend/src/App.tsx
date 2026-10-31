@@ -3,6 +3,7 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import DashboardPage from './pages/DashboardPage'
 import ProtectedRoute from './components/ProtectedRoute'
+import ChatPage from './pages/ChatPage'
 
 export default function App() {
   return (
@@ -18,6 +19,14 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path='/chat'
+          element={
+            <ProtectedRoute>
+              <ChatPage/>
+            </ProtectedRoute>
+          }
+          />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
